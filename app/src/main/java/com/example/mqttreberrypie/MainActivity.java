@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
          public boolean onTouch(View view, MotionEvent motionEvent) {
              if(motionEvent.getAction() == MotionEvent.ACTION_BUTTON_PRESS){
                  try {
-                     pahoMqttClient.publishMessage(client, " (\"motor\", payload='go(xaxis,-1)', hostname=\"192.168.1.3\")", 1, Constants.PUBLISH_TOPIC);
-                     pahoMqttClient.publishMessage(client, "  (\"motor\", payload='go(yaxis,1)', hostname=\"192.168.1.3\")", 1, Constants.PUBLISH_TOPIC);
+                     pahoMqttClient.publishMessage(client, "payload='go(xaxis,-1)'", 1, "motor");
+                     pahoMqttClient.publishMessage(client, "payload='go(yaxis,1)'", 1,"motor");
                  } catch (MqttException e) {
                      e.printStackTrace();
                  } catch (UnsupportedEncodingException e) {
@@ -74,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
           else   if(motionEvent.getAction()==MotionEvent.ACTION_BUTTON_RELEASE)
              {
                  try {
-                     pahoMqttClient.publishMessage(client, "  (\"motor\", payload='stop(xaxis)', hostname=\"192.168.1.3\")", 1, Constants.PUBLISH_TOPIC);
-                     pahoMqttClient.publishMessage(client, "   (\"motor\", payload='stop(yaxis)', hostname=\"192.168.1.3\")", 1, Constants.PUBLISH_TOPIC);
+                     pahoMqttClient.publishMessage(client, "payload='stop(xaxis)'", 1, "motor");
+                     pahoMqttClient.publishMessage(client, "payload='stop(yaxis)'", 1, "motor");
                  } catch (MqttException e) {
                      e.printStackTrace();
                  } catch (UnsupportedEncodingException e) {
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
          public boolean onTouch(View view, MotionEvent motionEvent) {
              if(motionEvent.getAction() == MotionEvent.ACTION_BUTTON_PRESS){
                  try {
-                     pahoMqttClient.publishMessage(client, "   (\"motor\", payload='go(zaxis,1)', hostname=\"192.168.1.3\")", 1, Constants.PUBLISH_TOPIC);
+                     pahoMqttClient.publishMessage(client, "payload='go(zaxis,1)'", 1, "motor");
 
                  } catch (MqttException e) {
                      e.printStackTrace();
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
           else   if(motionEvent.getAction()==MotionEvent.ACTION_BUTTON_RELEASE)
              {
                  try {
-                     pahoMqttClient.publishMessage(client, " (\"motor\", payload='stop(zaxis)', hostname=\"192.168.1.3\")", 1, Constants.PUBLISH_TOPIC);
+                     pahoMqttClient.publishMessage(client, "payload='stop(zaxis)'", 1, "motor");
 
                  } catch (MqttException e) {
                      e.printStackTrace();
